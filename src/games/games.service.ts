@@ -11,6 +11,6 @@ export class GamesService {
     }
     async create(dto: CreateGameDto, file: any) {
         const fileName = await this.filesService.createFile(file);
-        return await this.gameRepository.create({...dto, id: fileName,  file_name: fileName})
+        return await this.gameRepository.create({...dto, id: fileName})
     }
 }
