@@ -12,4 +12,9 @@ export class SemestersService {
         const semester = await this.semesterRepository.create(dto)
         return semester
     }
+
+    async getAllSemesters() {
+        const semesters = await this.semesterRepository.findAll({include: {all: true, nested: true}});
+        return semesters;
+    }
 }
