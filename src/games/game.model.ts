@@ -1,13 +1,14 @@
 import {Column, DataType, ForeignKey, Model, Table} from "sequelize-typescript";
 import {Semester} from "../semesters/semesters.model";
 import {Status} from "../statuses/statuses.model";
+import {Category} from "../categories/categories.model";
 
 interface GameCreationAttrs{
     id: string
     teamId: string
     name: string;
     semesterId: number;
-    category: number;
+    categoryId: number;
     theme: number;
     rating: number;
     statusId: number;
@@ -28,7 +29,8 @@ export class Game extends Model<Game, GameCreationAttrs>{
     @ForeignKey(()=> Semester)
     semesterId: number;
     @Column({type: DataType.INTEGER})
-    category: number;
+    @ForeignKey(()=> Category)
+    categoryId: number;
     @Column({type: DataType.INTEGER})
     theme: number;
     @Column({type: DataType.INTEGER})
