@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import {InjectModel} from "@nestjs/sequelize";
 import {Status} from "./statuses.model";
 import {CreateSemesterDto} from "../semesters/dto/create-semester.dto";
+import * as uuid from 'uuid';
 
 @Injectable()
 export class StatusesService {
@@ -9,7 +10,8 @@ export class StatusesService {
     }
 
     async create(dto: CreateSemesterDto) {
-        const status = await this.statusRepository.create(dto)
+        const newId = uuid.v4()
+        const status = await this.statusRepository.create({...dto, id: newId})
         return status
     }
 

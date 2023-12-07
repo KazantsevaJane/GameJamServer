@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import {InjectModel} from "@nestjs/sequelize";
 import {Category} from "./categories.model";
 import {CreateCategoryDto} from "./dto/create-category.dto";
+import * as uuid from 'uuid';
 
 @Injectable()
 export class CategoriesService {
@@ -9,7 +10,8 @@ export class CategoriesService {
     }
 
     async create(dto: CreateCategoryDto) {
-        const category = await this.categoryRepository.create(dto)
+        const newId = uuid.v4()
+        const category = await this.categoryRepository.create({...dto, id: newId})
         return category
     }
 

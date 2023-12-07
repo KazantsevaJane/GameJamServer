@@ -5,13 +5,13 @@ import {Category} from "../categories/categories.model";
 
 interface GameCreationAttrs{
     id: string
-    teamId: string
+    teamId: string;
     name: string;
-    semesterId: number;
-    categoryId: number;
-    theme: number;
+    semesterId: string;
+    categoryId: string;
+    theme: string;
     rating: number;
-    statusId: number;
+    statusId: string;
     shortDescription: string;
     playDescription: string;
     gitHubLink: string;
@@ -20,24 +20,24 @@ interface GameCreationAttrs{
 @Table({tableName:'games'})
 export class Game extends Model<Game, GameCreationAttrs>{
     @Column({type: DataType.STRING, unique:true, primaryKey:true})
-    id: number;
+    id: string;
     @Column({type: DataType.STRING})
     teamId: string
     @Column({type: DataType.STRING})
     name: string
-    @Column({type: DataType.INTEGER})
+    @Column({type: DataType.STRING})
     @ForeignKey(()=> Semester)
-    semesterId: number;
-    @Column({type: DataType.INTEGER})
+    semesterId: string;
+    @Column({type: DataType.STRING})
     @ForeignKey(()=> Category)
-    categoryId: number;
+    categoryId: string;
     @Column({type: DataType.INTEGER})
     theme: number;
-    @Column({type: DataType.INTEGER})
-    rating: number;
-    @Column({type: DataType.INTEGER})
+    @Column({type: DataType.STRING})
+    rating: string;
+    @Column({type: DataType.STRING})
     @ForeignKey(()=> Status)
-    statusId: number;
+    statusId: string;
     @Column({type: DataType.STRING})
     shortDescription: string;
     @Column({type: DataType.STRING})

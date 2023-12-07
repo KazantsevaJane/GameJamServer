@@ -10,16 +10,19 @@ import {Status} from "../statuses/statuses.model";
 import {StatusesModule} from "../statuses/statuses.module";
 import {CategoriesModule} from "../categories/categories.module";
 import {Category} from "../categories/categories.model";
+import {UsersModule} from "../users/users.module";
+import {User} from "../users/user.model";
 
 @Module({
   controllers: [GamesController],
   providers: [GamesService],
   imports: [
-      SequelizeModule.forFeature([Game, Semester, Status, Category]),
+      SequelizeModule.forFeature([Game, Semester, Status, Category, User]),
       FilesModule,
       SemestersModule,
       StatusesModule,
-      CategoriesModule
+      CategoriesModule,
+      UsersModule
   ]
 })
 export class GamesModule {}

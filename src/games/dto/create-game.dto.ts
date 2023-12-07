@@ -1,11 +1,11 @@
 export class CreateGameDto{
     readonly teamId: string
     readonly name: string
-    readonly semesterId: number
-    readonly categoryId: number
-    readonly theme: number
+    readonly semesterId: string
+    readonly categoryId: string
+    readonly theme: string
     readonly rating: number
-    readonly statusId: number
+    readonly statusId: string
     readonly shortDescription: string
     readonly playDescription: string
     readonly gitHubLink: string
