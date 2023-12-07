@@ -11,6 +11,11 @@ export class GamesService {
     }
     async create(dto: CreateGameDto, file: any) {
         const fileName = await this.filesService.createFile(file);
-        return await this.gameRepository.create({...dto, id: fileName})
+        return await this.gameRepository.create({...dto, id: fileName});
+    }
+
+    async getAllGames(){
+        const games = await this.gameRepository.findAll();
+        return games;
     }
 }

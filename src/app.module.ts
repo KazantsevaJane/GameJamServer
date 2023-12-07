@@ -7,6 +7,10 @@ import {Game} from "./games/game.model";
 import { FilesModule } from './files/files.module';
 import {ServeStaticModule} from "@nestjs/serve-static";
 import { SemestersModule } from './semesters/semesters.module';
+import { StatusesModule } from './statuses/statuses.module';
+import { CategoriesModule } from './categories/categories.module';
+import { UsersModule } from './users/users.module';
+import { ThemesModule } from './themes/themes.module';
 import * as path from "path";
 
 @Module({
@@ -27,6 +31,10 @@ import * as path from "path";
     GamesModule,
     FilesModule,
     SemestersModule,
+    StatusesModule,
+    CategoriesModule,
+    UsersModule,
+    ThemesModule,
   ]
 })
 export class AppModule {}

@@ -1,15 +1,18 @@
 import {Column, DataType, ForeignKey, Model, Table} from "sequelize-typescript";
 import {Semester} from "../semesters/semesters.model";
+import {Status} from "../statuses/statuses.model";
+import {Category} from "../categories/categories.model";
+import {Theme} from "../themes/temes.model";
 
 interface GameCreationAttrs{
     id: string
-    team_id: string
+    teamId: string;
     name: string;
-    semesterId: number;
-    category: number;
-    theme: number;
+    semesterId: string;
+    categoryId: string;
+    theme: string;
     rating: number;
-    status: number;
+    statusId: string;
     shortDescription: string;
     playDescription: string;
     gitHubLink: string;
@@ -18,22 +21,25 @@ interface GameCreationAttrs{
 @Table({tableName:'games'})
 export class Game extends Model<Game, GameCreationAttrs>{
     @Column({type: DataType.STRING, unique:true, primaryKey:true})
-    id: number;
+    id: string;
     @Column({type: DataType.STRING})
-    team_id: string
+    teamId: string
     @Column({type: DataType.STRING})
     name: string
-    @Column({type: DataType.INTEGER})
+    @Column({type: DataType.STRING})
     @ForeignKey(()=> Semester)
-    semesterId: number;
-    @Column({type: DataType.INTEGER})
-    category: number;
-    @Column({type: DataType.INTEGER})
-    theme: number;
-    @Column({type: DataType.INTEGER})
-    rating: number;
-    @Column({type: DataType.INTEGER})
-    status: number;
+    semesterId: string;
+    @Column({type: DataType.STRING})
+    @ForeignKey(()=> Category)
+    categoryId: string;
+    @Column({type: DataType.STRING})
+    @ForeignKey(()=> Theme)
+    theme: string;
+    @Column({type: DataType.STRING})
+    rating: string;
+    @Column({type: DataType.STRING})
+    @ForeignKey(()=> Status)
+    statusId: string;
     @Column({type: DataType.STRING})
     shortDescription: string;
     @Column({type: DataType.STRING})

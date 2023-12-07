@@ -1,13 +1,13 @@
 import {Column, DataType, HasMany, Model, Table} from "sequelize-typescript";
 import {Game} from "../games/game.model";
 
-interface SemestersCreationAttrs {
+interface ThemesCreationAttrs{
     id: string
-    name: string
+    name:string
 }
 
-@Table({tableName: 'semesters'})
-export class Semester extends Model<Semester, SemestersCreationAttrs> {
+@Table({tableName: 'themes'})
+export class Theme extends Model<Theme, ThemesCreationAttrs>{
     @Column({type: DataType.STRING, unique:true, primaryKey:true})
     id: string;
     @Column({type: DataType.STRING})

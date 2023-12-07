@@ -1,4 +1,4 @@
-import {Body, Controller, Post, UploadedFile, UseInterceptors} from '@nestjs/common';
+import {Body, Controller, Get, Post, UploadedFile, UseInterceptors} from '@nestjs/common';
 import {CreateGameDto} from "./dto/create-game.dto";
 import {GamesService} from "./games.service";
 import {FileInterceptor} from "@nestjs/platform-express";
@@ -10,11 +10,15 @@ export class GamesController {
     constructor(private gamesService: GamesService) {
     }
 
-
     @Post()
     @UseInterceptors(FileInterceptor('file_name'))
     createGame(@Body() dto: CreateGameDto, @UploadedFile() file_name){
         const a = this.gamesService.create(dto, file_name)
         return a
+    }
+
+    @Get()
+    getAll() {
+        return this.gamesService.getAllGames();
     }
 }
