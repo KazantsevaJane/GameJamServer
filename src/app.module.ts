@@ -11,6 +11,7 @@ import { StatusesModule } from './statuses/statuses.module';
 import { CategoriesModule } from './categories/categories.module';
 import { UsersModule } from './users/users.module';
 import { ThemesModule } from './themes/themes.module';
+import { AuthModule } from './auth/auth.module';
 import * as path from "path";
 
 @Module({
@@ -35,6 +36,7 @@ import * as path from "path";
     CategoriesModule,
     UsersModule,
     ThemesModule,
+    AuthModule,
   ]
 })
 export class AppModule {}
