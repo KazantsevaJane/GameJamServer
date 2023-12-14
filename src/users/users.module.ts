@@ -21,6 +21,7 @@ import {User} from "./user.model";
     SemestersModule,
     StatusesModule,
     CategoriesModule
-  ]
+  ],
+  exports: [UsersService]
 })
 export class UsersModule {}
