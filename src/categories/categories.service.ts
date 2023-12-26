@@ -3,6 +3,7 @@ import {InjectModel} from "@nestjs/sequelize";
 import {Category} from "./categories.model";
 import {CreateCategoryDto} from "./dto/create-category.dto";
 import * as uuid from 'uuid';
+import {Theme} from "../themes/themes.model";
 
 @Injectable()
 export class CategoriesService {
@@ -16,7 +17,7 @@ export class CategoriesService {
     }
 
     async getAllCategories() {
-        const category = await this.categoryRepository.findAll({include: {all: true, nested: true}});
+        const category = await this.categoryRepository.findAll({include: Theme});
         return category;
     }
 }

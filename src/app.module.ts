@@ -13,6 +13,12 @@ import { UsersModule } from './users/users.module';
 import { ThemesModule } from './themes/themes.module';
 import { AuthModule } from './auth/auth.module';
 import * as path from "path";
+import {CategoryThemes} from "./themes/categorythemes.model";
+import {Semester} from "./semesters/semesters.model";
+import {Status} from "./statuses/statuses.model";
+import {Category} from "./categories/categories.model";
+import {Theme} from "./themes/themes.model";
+import {User} from "./users/user.model";
 
 @Module({
   controllers: [AppController],
@@ -26,7 +32,7 @@ import * as path from "path";
       username: 'postgres',
       password: 'root',
       database: 'test',
-      models: [Game],
+      models: [Game, CategoryThemes, User, Semester, Status, Category, Theme, CategoryThemes], //Возможно имеет смысл прописать сюда все модели
       autoLoadModels: true
     }),
     GamesModule,

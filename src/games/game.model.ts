@@ -2,7 +2,7 @@ import {Column, DataType, ForeignKey, Model, Table} from "sequelize-typescript";
 import {Semester} from "../semesters/semesters.model";
 import {Status} from "../statuses/statuses.model";
 import {Category} from "../categories/categories.model";
-import {Theme} from "../themes/temes.model";
+import {Theme} from "../themes/themes.model";
 
 interface GameCreationAttrs{
     id: string

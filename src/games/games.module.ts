@@ -12,7 +12,7 @@ import {CategoriesModule} from "../categories/categories.module";
 import {Category} from "../categories/categories.model";
 import {UsersModule} from "../users/users.module";
 import {User} from "../users/user.model";
-import {Theme} from "../themes/temes.model";
+import {Theme} from "../themes/themes.model";
 import {ThemesModule} from "../themes/themes.module";
 
 @Module({

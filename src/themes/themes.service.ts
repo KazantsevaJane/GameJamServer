@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import {InjectModel} from "@nestjs/sequelize";
-import {Theme} from "./temes.model";
+import {Theme} from "./themes.model";
 import {CreateThemeDto} from "./dto/create-theme.dto";
 import * as uuid from 'uuid';
 
