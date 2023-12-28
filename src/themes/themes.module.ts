@@ -7,6 +7,7 @@ import {FilesModule} from "../files/files.module";
 import {Theme} from "./themes.model";
 import {CategoryThemes} from "./categorythemes.model";
 import {Category} from "../categories/categories.model";
+import {CategoriesModule} from "../categories/categories.module";
 
 @Module({
   providers: [ThemesService],
@@ -15,6 +16,7 @@ import {Category} from "../categories/categories.model";
     SequelizeModule.forFeature([Game, Theme, Category, CategoryThemes]),
     FilesModule,
     ThemesModule,
+    CategoriesModule
   ]
 })
 export class ThemesModule {}

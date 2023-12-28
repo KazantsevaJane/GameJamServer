@@ -18,5 +18,5 @@ export class Theme extends Model<Theme, ThemesCreationAttrs>{
     @HasMany(()=> Game)
     games: Game[]
     @BelongsToMany(()=> Category, ()=> CategoryThemes)
-    category: Category[]
+    categories: Category[]
 }

@@ -20,4 +20,9 @@ export class CategoriesService {
         const category = await this.categoryRepository.findAll({include: Theme});
         return category;
     }
+
+    async getCategoryById(id){
+        const category = await this.categoryRepository.findByPk(id)
+        return category
+    }
 }

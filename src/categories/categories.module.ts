@@ -8,6 +8,7 @@ import {SemestersModule} from "../semesters/semesters.module";
 import {Category} from "./categories.model";
 import {Theme} from "../themes/themes.model";
 import {CategoryThemes} from "../themes/categorythemes.model";
+import {ThemesModule} from "../themes/themes.module";
 
 @Module({
   providers: [CategoriesService],
@@ -17,6 +18,6 @@ import {CategoryThemes} from "../themes/categorythemes.model";
     FilesModule,
     CategoriesModule,
   ],
-  exports: []
+  exports: [CategoriesService]
 })
 export class CategoriesModule {}
