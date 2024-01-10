@@ -27,10 +27,10 @@ import {User} from "./users/user.model";
       ServeStaticModule.forRoot({rootPath: path.resolve(__dirname, 'static')}),
     SequelizeModule.forRoot({
       dialect: 'postgres',
-      host: 'localhost',
+      host: 'ep-patient-lake-13752444-pooler.us-east-1.postgres.vercel-storage.com',
       port: 5432,
-      username: 'postgres',
-      password: 'root',
+      username: 'default',
+      password: '2xNvTwE9LdsH',
       database: 'test',
       models: [Game, CategoryThemes, User, Semester, Status, Category, Theme, CategoryThemes], //Возможно имеет смысл прописать сюда все модели
       autoLoadModels: true
