@@ -32,11 +32,11 @@ import * as process from "process";
       ServeStaticModule.forRoot({rootPath: path.resolve(__dirname, 'static')}),
     SequelizeModule.forRoot({
       dialect: 'postgres',
-      host: process.env.POSTGRES_HOST,
-      port: Number(process.env.POSTGRES_PORT),
-      username: process.env.POSTGRES_USER,
-      password: process.env.POSTGRES_PASSWORD,
-      database: process.env.POSTGRES_DB,
+      host: 'localhost',
+      port: 5432,
+      username: 'postgres',
+      password: 'root',
+      database: "test",
       models: [Game, CategoryThemes, User, Semester, Status, Category, Theme, CategoryThemes], //Возможно имеет смысл прописать сюда все модели
       autoLoadModels: true
     }),

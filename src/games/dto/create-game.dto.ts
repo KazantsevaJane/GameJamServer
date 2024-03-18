@@ -9,5 +9,5 @@ export class CreateGameDto{
     readonly shortDescription: string
     readonly playDescription: string
     readonly gitHubLink: string
-
+    readonly commandId: string
 }
