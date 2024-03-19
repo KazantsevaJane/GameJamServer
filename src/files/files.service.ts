@@ -19,7 +19,6 @@ export class FilesService {
             const arhive = path.resolve(filePath, fileName)
             const zip = new AdmZip(arhive)
             await zip.extractAllTo(filePath)
-            console.log('dffddff')
             return folderName
         } catch (e) {
             console.log(e)
