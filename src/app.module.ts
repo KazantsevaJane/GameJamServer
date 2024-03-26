@@ -28,6 +28,7 @@ import * as process from "process";
 import {TeamRole} from "./team-roles/team-roles.model";
 import { TeamDistModule } from './team-dist/team-dist.module';
 import {TeamDist} from "./team-dist/team-dist.model";
+import {Team} from "./teams/teams.model";
 
 @Module({
   controllers: [AppController],
@@ -44,7 +45,7 @@ import {TeamDist} from "./team-dist/team-dist.model";
       username: 'postgres',
       password: 'root',
       database: "test",
-      models: [Game, CategoryThemes, User, Semester, Status, Category, Theme, CategoryThemes, TeamRole, TeamDist], //Возможно имеет смысл прописать сюда все модели
+      models: [Game, CategoryThemes, User, Semester, Status, Category, Theme, CategoryThemes, TeamRole, TeamDist, Team], //Возможно имеет смысл прописать сюда все модели
       autoLoadModels: true
     }),
     GamesModule,

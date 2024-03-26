@@ -3,6 +3,7 @@ import {InjectModel} from "@nestjs/sequelize";
 import {Team} from "./teams.model";
 import {TeamsCreateDto} from "./dto/teams-create.dto";
 import * as uuid from 'uuid';
+import {User} from "../users/user.model";
 
 @Injectable()
 export class TeamsService {
@@ -16,5 +17,9 @@ export class TeamsService {
 
     async getAllTeam(){
         return await this.teamRepository.findAll();
+    }
+
+    async getStudentsByTeamId(teamId){
+        return await this.teamRepository.findAll({where: {id: teamId}, include: User})
     }
 }
