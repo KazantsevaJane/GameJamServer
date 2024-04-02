@@ -1,6 +1,7 @@
 import {BelongsToMany, Column, DataType, HasMany, Model, Table} from "sequelize-typescript";
 import {TeamDist} from "../team-dist/team-dist.model";
 import {Team} from "../teams/teams.model";
+import {TeamRole} from "../team-roles/team-roles.model";
 
 interface UserCreationAttrs{
     id: string
@@ -27,4 +28,6 @@ export class User extends Model<User, UserCreationAttrs>{
     academicGroup: string
     @BelongsToMany(()=> Team, ()=>TeamDist)
     team: Team[]
+    @BelongsToMany(()=> TeamRole, ()=>TeamDist)
+    teamRole: TeamRole[]
 }
