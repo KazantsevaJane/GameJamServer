@@ -11,16 +11,20 @@ import {SemestersModule} from "../semesters/semesters.module";
 import {StatusesModule} from "../statuses/statuses.module";
 import {CategoriesModule} from "../categories/categories.module";
 import {User} from "./user.model";
+import {Team} from "../teams/teams.model";
+import {TeamsModule} from "../teams/teams.module";
+import {TeamRole} from "../team-roles/team-roles.model";
+import {TeamDist} from "../team-dist/team-dist.model";
 
 @Module({
   providers: [UsersService],
   controllers: [UsersController],
   imports: [
-    SequelizeModule.forFeature([User, Game, Semester, Status, Category]),
+    SequelizeModule.forFeature([User, Game, Semester, Status, Category, Team, TeamRole, TeamDist]),
     FilesModule,
     SemestersModule,
     StatusesModule,
-    CategoriesModule
+    CategoriesModule,
   ],
   exports: [UsersService]
 })

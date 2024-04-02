@@ -2,6 +2,7 @@ import {Body, Controller, Get, Post} from '@nestjs/common';
 import {ThemesService} from "./themes.service";
 import {CreateThemeDto} from "./dto/create-theme.dto";
 
+
 @Controller('themes')
 export class ThemesController {
     constructor(private themeService: ThemesService) {
@@ -16,4 +17,5 @@ export class ThemesController {
     getAll(){
         return this.themeService.getAllThemes()
     }
+
 }
