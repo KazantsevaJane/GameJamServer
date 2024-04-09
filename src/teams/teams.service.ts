@@ -37,4 +37,8 @@ export class TeamsService {
             attributes: ['id', 'name']
         })
     }
+
+    async getTeamById(id){
+        return await this.teamRepository.findByPk(id)
+    }
 }

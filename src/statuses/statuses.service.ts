@@ -19,4 +19,8 @@ export class StatusesService {
         const statuses = await this.statusRepository.findAll()
         return statuses
     }
+
+    async getStatusById(id){
+        return await this.statusRepository.findByPk(id)
+    }
 }

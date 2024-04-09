@@ -19,4 +19,8 @@ export class SemestersService {
         const semesters = await this.semesterRepository.findAll({include: {all: true, nested: true}});
         return semesters;
     }
+
+    async getSemesterById(id){
+        return await this.semesterRepository.findByPk(id)
+    }
 }

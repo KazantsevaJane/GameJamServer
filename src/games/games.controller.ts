@@ -1,4 +1,4 @@
-import {Body, Controller, Get, Post, UploadedFile, UseInterceptors} from '@nestjs/common';
+import {Body, Controller, Get, Param, Post, UploadedFile, UseInterceptors} from '@nestjs/common';
 import {CreateGameDto} from "./dto/create-game.dto";
 import {GamesService} from "./games.service";
 import {FileInterceptor} from "@nestjs/platform-express";
@@ -20,5 +20,10 @@ export class GamesController {
     @Get()
     getAll() {
         return this.gamesService.getAllGames();
+    }
+
+    @Get(':id')
+    getAllTeamDist(@Param() params: any){
+        return this.gamesService.getGameById(params.id)
     }
 }

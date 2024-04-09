@@ -24,4 +24,8 @@ export class ThemesService {
         const theme = await this.themeRepository.findAll();
         return theme;
     }
+
+    async getThemesById(id){
+        return await this.themeRepository.findByPk(id)
+    }
 }

@@ -1,4 +1,4 @@
-import {Body, Controller, Get, Post} from '@nestjs/common';
+import {Body, Controller, Get, Param, Post} from '@nestjs/common';
 import {SemestersService} from "./semesters.service";
 import {CreateSemesterDto} from "./dto/create-semester.dto";
 
@@ -14,5 +14,10 @@ export class SemestersController {
     @Get()
     getAll(){
         return this.semesterService.getAllSemesters()
+    }
+
+    @Get(':id')
+    getAllTeamDist(@Param() params: any){
+        return this.semesterService.getSemesterById(params.id)
     }
 }

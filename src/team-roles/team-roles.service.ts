@@ -17,4 +17,8 @@ export class TeamRolesService {
     async getAllTeam(){
         return await this.teamRoleRepository.findAll();
     }
+
+    async getTeamRoleById(id){
+        return await this.teamRoleRepository.findByPk(id)
+    }
 }

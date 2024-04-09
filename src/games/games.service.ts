@@ -18,4 +18,8 @@ export class GamesService {
         const games = await this.gameRepository.findAll();
         return games;
     }
+
+    async getGameById(id){
+        return await this.gameRepository.findByPk(id)
+    }
 }

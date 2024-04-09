@@ -1,4 +1,4 @@
-import {Body, Controller, Get, Post} from '@nestjs/common';
+import {Body, Controller, Get, Param, Post} from '@nestjs/common';
 import {StatusesService} from "./statuses.service";
 import {CreateSemesterDto} from "../semesters/dto/create-semester.dto";
 import {CreateStatusDto} from "./dto/create-status.dto";
@@ -15,6 +15,11 @@ export class StatusesController {
     @Get()
     getAll(){
         return this.statusService.getAllStatuses()
+    }
+
+    @Get(':id')
+    getAllTeamDist(@Param() params: any){
+        return this.statusService.getStatusById(params.id)
     }
 
 }
