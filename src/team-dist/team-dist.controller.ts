@@ -1,6 +1,6 @@
 import {Body, Controller, Get, Param, Post} from '@nestjs/common';
 import {TeamDistService} from "./team-dist.service";
-import {DistCreateDto} from "./dto/dist-create.dto";
+import {DistPostDto} from "./dto/dist-post.dto";
 
 @Controller('team-dist')
 export class TeamDistController {
@@ -8,7 +8,7 @@ export class TeamDistController {
     }
 
     @Post()
-    createTeamDist(@Body() dto: DistCreateDto){
+    createTeamDist(@Body() dto: DistPostDto){
         return this.distService.create(dto)
     }
 

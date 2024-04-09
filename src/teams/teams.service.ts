@@ -6,6 +6,7 @@ import * as uuid from 'uuid';
 import {User} from "../users/user.model";
 import sequelize from "sequelize";
 import {TeamRole} from "../team-roles/team-roles.model";
+import {TeamDist} from "../team-dist/team-dist.model";
 
 
 @Injectable()
@@ -25,19 +26,14 @@ export class TeamsService {
     async getStudentsByTeamId(teamId){
         return await this.teamRepository.findAll({
             where: {id: teamId},
-            include: [{
+            include: [
+                {
                 model: User,
                 through: {
                     attributes: []
                 },
-                include: [{
-                    model: TeamRole,
-                    attributes: ['name'],
-                    through: {attributes:[]}
-                }],
                 attributes: ['id', 'name', 'surname', 'academicGroup']
-            }
-            ],
+            }],
             attributes: ['id', 'name']
         })
     }

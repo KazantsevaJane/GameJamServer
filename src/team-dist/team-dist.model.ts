@@ -1,25 +1,37 @@
-import {Column, DataType, ForeignKey, Model, Table} from "sequelize-typescript";
+import {BelongsTo, BelongsToMany, Column, DataType, ForeignKey, HasMany, Model, Table} from "sequelize-typescript";
 import {Team} from "../teams/teams.model";
 import {User} from "../users/user.model";
 import {TeamRole} from "../team-roles/team-roles.model";
+import {RoleTeamDist} from "./role-team-dist.model";
 
 interface TeamDistCreationAttrs{
     id: string
+    teamRoleId: string
     teamId: string
     userId: string
-    teamRoleId: string
+
 }
 @Table({tableName: 'teamdist'})
 export class TeamDist extends Model<TeamDist, TeamDistCreationAttrs>{
-    @Column({type: DataType.STRING, unique:true, primaryKey:true})
+    @Column({type: DataType.INTEGER, unique: true, autoIncrement: true, primaryKey: true})
     id: string;
-    @Column({type: DataType.STRING, unique: false})
+    // @ForeignKey(()=> TeamRole)
+    // @Column({type: DataType.STRING, unique:false})
+    // teamRoleId: string
     @ForeignKey(()=> Team)
+    @Column({type: DataType.STRING, unique: false})
     teamId: string
-    @Column({type: DataType.STRING, unique:false})
     @ForeignKey(()=> User)
-    userId: string
     @Column({type: DataType.STRING, unique:false})
-    @ForeignKey(()=> TeamRole)
-    teamRoleId: string
+    userId: string
+    // @BelongsTo(()=> TeamRole)
+    // teamRole: TeamRole
+    @BelongsTo(()=> Team)
+    team: Team
+    @BelongsTo(()=> User)
+    user: User
+    @BelongsToMany(()=> TeamDist, ()=> RoleTeamDist)
+    teamDist: TeamDist[]
+    @HasMany(()=> RoleTeamDist)
+    roleTeamDist: RoleTeamDist[]
 }

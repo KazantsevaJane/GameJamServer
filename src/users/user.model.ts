@@ -28,6 +28,8 @@ export class User extends Model<User, UserCreationAttrs>{
     academicGroup: string
     @BelongsToMany(()=> Team, ()=>TeamDist)
     team: Team[]
-    @BelongsToMany(()=> TeamRole, ()=>TeamDist)
-    teamRole: TeamRole[]
+    // @BelongsToMany(()=> TeamRole, ()=>TeamDist)
+    // teamRole: TeamRole[]
+    @HasMany(()=> TeamDist)
+    teamDist: TeamDist[]
 }
