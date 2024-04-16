@@ -18,7 +18,7 @@ export class CategoriesController {
     }
 
     @Get(':id')
-    getAllTeamDist(@Param() params: any){
+    getCategoriesById(@Param() params: any){
         return this.categoryService.getCategoryById(params.id)
     }
 }

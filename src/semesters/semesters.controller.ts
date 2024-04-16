@@ -17,7 +17,7 @@ export class SemestersController {
     }
 
     @Get(':id')
-    getAllTeamDist(@Param() params: any){
+    getSemesterById(@Param() params: any){
         return this.semesterService.getSemesterById(params.id)
     }
 }

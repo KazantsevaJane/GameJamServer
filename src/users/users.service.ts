@@ -26,4 +26,8 @@ export class UsersService {
     async getUserById(id){
         return await this.userRepository.findByPk(id)
     }
+
+    async putUserById(id, dto:CreateUserDto){
+        return await this.userRepository.update(dto, {where: {id: id}})
+    }
 }

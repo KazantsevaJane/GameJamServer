@@ -41,4 +41,8 @@ export class TeamsService {
     async getTeamById(id){
         return await this.teamRepository.findByPk(id)
     }
+
+    async putTeamById(id, dto:TeamsCreateDto){
+        return await this.teamRepository.update(dto, {where: {id:id}})
+    }
 }

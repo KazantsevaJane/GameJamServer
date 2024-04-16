@@ -1,4 +1,4 @@
-import {Body, Controller, Get, Param, Post} from '@nestjs/common';
+import {Body, Controller, Get, Param, Post, Put} from '@nestjs/common';
 import {TeamsService} from "./teams.service";
 import {TeamsCreateDto} from "./dto/teams-create.dto";
 
@@ -17,8 +17,18 @@ export class TeamsController {
         return this.teamService.getAllTeam()
     }
 
-    @Get(':id')
-    getAllTeamDist(@Param() params: any){
+    @Get('students/:id')
+    getTeamById(@Param() params: any){
+        return this.teamService.getTeamById(params.id)
+    }
+
+    @Get('students/:id')
+    getStudentsByTeamId(@Param() params: any){
         return this.teamService.getStudentsByTeamId(params.id)
+    }
+
+    @Put(':id')
+    putTeamById(@Param() params:any, @Body() dto:TeamsCreateDto){
+        return this.teamService.putTeamById(params.id, dto)
     }
 }

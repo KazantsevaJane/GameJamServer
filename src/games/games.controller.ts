@@ -23,7 +23,7 @@ export class GamesController {
     }
 
     @Get(':id')
-    getAllTeamDist(@Param() params: any){
+    getGameById(@Param() params: any){
         return this.gamesService.getGameById(params.id)
     }
 }

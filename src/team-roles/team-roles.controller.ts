@@ -1,4 +1,4 @@
-import {Body, Controller, Get, Post} from '@nestjs/common';
+import {Body, Controller, Get, Param, Post} from '@nestjs/common';
 import {TeamRolesService} from "./team-roles.service";
 import {TeamRoleCreateDto} from "./dto/team-role-create.dto";
 
@@ -15,5 +15,10 @@ export class TeamRolesController {
     @Get()
     getAllTeamRole(){
         return this.teamRoleService.getAllTeam()
+    }
+
+    @Get(':id')
+    getTeamRoleById(@Param() params: any){
+        return this.teamRoleService.getTeamRoleById(params.id)
     }
 }

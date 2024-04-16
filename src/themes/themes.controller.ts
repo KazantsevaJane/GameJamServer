@@ -1,4 +1,4 @@
-import {Body, Controller, Get, Post} from '@nestjs/common';
+import {Body, Controller, Get, Param, Post, Put} from '@nestjs/common';
 import {ThemesService} from "./themes.service";
 import {CreateThemeDto} from "./dto/create-theme.dto";
 
@@ -18,4 +18,13 @@ export class ThemesController {
         return this.themeService.getAllThemes()
     }
 
+    @Get(':id')
+    getThemeById(@Param() params: any){
+        return this.themeService.getThemesById(params.id)
+    }
+
+    @Put(':id')
+    putThemeById(@Param() params: any, @Body() dto: CreateThemeDto){
+        return this.themeService.putThemeById(params.id, dto)
+    }
 }

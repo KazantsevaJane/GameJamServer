@@ -28,4 +28,8 @@ export class ThemesService {
     async getThemesById(id){
         return await this.themeRepository.findByPk(id)
     }
+
+    async putThemeById(id, dto: CreateThemeDto){
+        return await this.themeRepository.update(dto, {where: {id:id}})
+    }
 }

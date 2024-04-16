@@ -18,7 +18,7 @@ export class StatusesController {
     }
 
     @Get(':id')
-    getAllTeamDist(@Param() params: any){
+    getStatusesById(@Param() params: any){
         return this.statusService.getStatusById(params.id)
     }
 
