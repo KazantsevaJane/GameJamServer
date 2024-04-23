@@ -24,4 +24,8 @@ export class TeamDistService {
         return await this.teamDistRepository.findAll()
     }
 
+    async putTeamDistById(id, dto:DistPostDto){
+        return await this.teamDistRepository.update(dto, {where: {id: id}})
+    }
+
 }

@@ -1,8 +1,9 @@
-import {Body, Controller, Get, Param, Post, UploadedFile, UseInterceptors} from '@nestjs/common';
+import {Body, Controller, Get, Param, Post, Put, UploadedFile, UseInterceptors} from '@nestjs/common';
 import {CreateGameDto} from "./dto/create-game.dto";
 import {GamesService} from "./games.service";
 import {FileInterceptor} from "@nestjs/platform-express";
 import {rethrow} from "@nestjs/core/helpers/rethrow";
+import {UpdateGameDto} from "./dto/update-game.dto";
 
 @Controller('api/games')
 export class GamesController {
@@ -25,5 +26,10 @@ export class GamesController {
     @Get(':id')
     getGameById(@Param() params: any){
         return this.gamesService.getGameById(params.id)
+    }
+
+    @Put(':id')
+    putGameById(@Param() params: any, @Body() dto: UpdateGameDto){
+        return this.gamesService.putGameById(params.id, dto)
     }
 }

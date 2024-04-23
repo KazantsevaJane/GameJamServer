@@ -3,6 +3,7 @@ import {CreateGameDto} from "./dto/create-game.dto";
 import {InjectModel} from "@nestjs/sequelize";
 import {Game} from "./game.model";
 import {FilesService} from "../files/files.service";
+import {UpdateGameDto} from "./dto/update-game.dto";
 
 @Injectable()
 export class GamesService {
@@ -21,5 +22,9 @@ export class GamesService {
 
     async getGameById(id){
         return await this.gameRepository.findByPk(id)
+    }
+
+    async putGameById(id, dto:UpdateGameDto){
+        return await this.gameRepository.update(dto, {where: {id: id}})
     }
 }

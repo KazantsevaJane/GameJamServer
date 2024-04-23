@@ -23,4 +23,8 @@ export class SemestersService {
     async getSemesterById(id){
         return await this.semesterRepository.findByPk(id)
     }
+
+    async putSemesterById(id, dto:CreateSemesterDto){
+        return await  this.semesterRepository.update(dto, {where: {id: id}})
+    }
 }

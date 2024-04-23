@@ -1,4 +1,4 @@
-import {Body, Controller, Get, Param, Post} from '@nestjs/common';
+import {Body, Controller, Get, Param, Post, Put} from '@nestjs/common';
 import {TeamDistService} from "./team-dist.service";
 import {DistPostDto} from "./dto/dist-post.dto";
 
@@ -12,6 +12,10 @@ export class TeamDistController {
         return this.distService.create(dto)
     }
 
+    @Put(':id')
+    putTeamDistById(@Param() params: any, @Body() dto: DistPostDto){
+        return this.distService.putTeamDistById(params.id, dto)
+    }
 
 
 }

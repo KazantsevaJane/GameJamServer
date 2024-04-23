@@ -21,4 +21,8 @@ export class TeamRolesService {
     async getTeamRoleById(id){
         return await this.teamRoleRepository.findByPk(id)
     }
+
+    async putTeamRoleById(id, dto:TeamRoleCreateDto){
+        return await  this.teamRoleRepository.update(dto, {where: {id:id}})
+    }
 }

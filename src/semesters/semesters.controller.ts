@@ -1,4 +1,4 @@
-import {Body, Controller, Get, Param, Post} from '@nestjs/common';
+import {Body, Controller, Get, Param, Post, Put} from '@nestjs/common';
 import {SemestersService} from "./semesters.service";
 import {CreateSemesterDto} from "./dto/create-semester.dto";
 
@@ -19,5 +19,10 @@ export class SemestersController {
     @Get(':id')
     getSemesterById(@Param() params: any){
         return this.semesterService.getSemesterById(params.id)
+    }
+
+    @Put(':id')
+    putSemesterById(@Param() params: any, @Body() dto: CreateSemesterDto){
+        return this.semesterService.putSemesterById(params.id, dto)
     }
 }
