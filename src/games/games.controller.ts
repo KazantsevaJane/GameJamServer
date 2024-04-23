@@ -32,4 +32,9 @@ export class GamesController {
     putGameById(@Param() params: any, @Body() dto: UpdateGameDto){
         return this.gamesService.putGameById(params.id, dto)
     }
+
+    @Get('bysemester/:id')
+    getGamesBySemester(@Param() params: any){
+        return this.gamesService.getGamesBySemesterId(params.id)
+    }
 }

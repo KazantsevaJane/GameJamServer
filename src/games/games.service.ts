@@ -27,4 +27,8 @@ export class GamesService {
     async putGameById(id, dto:UpdateGameDto){
         return await this.gameRepository.update(dto, {where: {id: id}})
     }
+
+    async getGamesBySemesterId(semesterId){
+        return await this.gameRepository.findAll({where: {semesterId: semesterId}})
+    }
 }
