@@ -22,6 +22,11 @@ export class StatusesController {
         return this.statusService.getStatusById(params.id)
     }
 
+    @Get('/games/:id')
+    getGamesByStatusId(@Param() params: any){
+        return this.statusService.getGamesByStatusId(params.id)
+    }
+
 
     @Put(':id')
     putStatusById(@Param() params: any, @Body() dto: CreateSemesterDto){

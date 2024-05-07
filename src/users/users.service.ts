@@ -30,4 +30,8 @@ export class UsersService {
     async putUserById(id, dto:CreateUserDto){
         return await this.userRepository.update(dto, {where: {id: id}})
     }
+
+    async changePassword(id, newPassword){
+        return await this.userRepository.update({password: newPassword}, {where: {id: id}})
+    }
 }

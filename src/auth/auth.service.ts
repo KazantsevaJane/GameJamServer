@@ -4,6 +4,7 @@ import {CreateUserDto} from "../users/dto/create-user.dto";
 import {UsersService} from "../users/users.service";
 import {JwtService} from "@nestjs/jwt";
 import * as bycrypt from 'bcryptjs'
+import {ChangePasswordDto} from "../users/dto/change-passwrd.dto";
 
 @Injectable()
 export class AuthService {
@@ -40,5 +41,14 @@ export class AuthService {
             return user
         }
         throw new UnauthorizedException({message: 'Некорректный email или пароль'})
+    }
+
+    async changePassword(changePasswordDto:ChangePasswordDto){
+        const user = await this.usersService.getUserById(changePasswordDto.id)
+        const passwordEquals = await bycrypt.compare(changePasswordDto.password, user.password)
+        if (user && passwordEquals) {
+            const hashPassword = await bycrypt.hash(changePasswordDto.newPassword, 5)
+            return this.usersService.changePassword(changePasswordDto.id, hashPassword)
+        }
     }
 }
