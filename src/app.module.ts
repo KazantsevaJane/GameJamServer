@@ -30,6 +30,7 @@ import { TeamDistModule } from './team-dist/team-dist.module';
 import {TeamDist} from "./team-dist/team-dist.model";
 import {Team} from "./teams/teams.model";
 import {RoleTeamDist} from "./team-dist/role-team-dist.model";
+import { VerifyModule } from './verify/verify.module';
 
 @Module({
   controllers: [AppController],
@@ -60,6 +61,7 @@ import {RoleTeamDist} from "./team-dist/role-team-dist.model";
     TeamsModule,
     TeamRolesModule,
     TeamDistModule,
+    VerifyModule,
   ]
 })
 export class AppModule {}

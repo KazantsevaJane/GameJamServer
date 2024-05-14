@@ -26,6 +26,8 @@ export class User extends Model<User, UserCreationAttrs>{
     surname: string
     @Column({type: DataType.STRING})
     academicGroup: string
+    @Column({type: DataType.STRING})
+    status: string
     @BelongsToMany(()=> Team, ()=>TeamDist)
     team: Team[]
     // @BelongsToMany(()=> TeamRole, ()=>TeamDist)
