@@ -25,6 +25,7 @@ import {CategoriesModule} from "../categories/categories.module";
     StatusesModule,
     CategoriesModule,
   ],
-  providers: [VerifyService]
+  providers: [VerifyService],
+  exports: [VerifyService]
 })
 export class VerifyModule {}
