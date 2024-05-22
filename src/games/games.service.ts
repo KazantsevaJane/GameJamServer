@@ -31,4 +31,8 @@ export class GamesService {
     async getGamesBySemesterId(semesterId){
         return await this.gameRepository.findAll({where: {semesterId: semesterId}})
     }
+
+    async test(){
+        return await this.filesService.test()
+    }
 }

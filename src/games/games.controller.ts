@@ -18,12 +18,12 @@ export class GamesController {
         return a
     }
 
-    @Get()
+    @Get('getall')
     getAll() {
         return this.gamesService.getAllGames();
     }
 
-    @Get(':id')
+    @Get('getbyid/:id')
     getGameById(@Param() params: any){
         return this.gamesService.getGameById(params.id)
     }
@@ -36,5 +36,11 @@ export class GamesController {
     @Get('bysemester/:id')
     getGamesBySemester(@Param() params: any){
         return this.gamesService.getGamesBySemesterId(params.id)
+    }
+
+    @Get('test')
+    test(){
+        console.log('fvdfvdf')
+        return this.gamesService.test()
     }
 }
