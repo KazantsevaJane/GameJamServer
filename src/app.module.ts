@@ -41,11 +41,11 @@ import {RoleTeamDist} from "./team-dist/role-team-dist.model";
       ServeStaticModule.forRoot({rootPath: path.resolve(__dirname, 'static')}),
     SequelizeModule.forRoot({
       dialect: 'postgres',
-      host: 'localhost',
-      port: 5432,
-      username: 'postgres',
-      password: 'root',
-      database: "test",
+      host: 'rc1b-q1yexwayqw1oa9rt.mdb.yandexcloud.net',
+      port: 6432,
+      username: 'user1',
+      password: 'user1user1',
+      database: "db1",
       models: [Game, CategoryThemes, User, Semester, Status, Category, Theme, CategoryThemes, TeamRole, TeamDist, Team, RoleTeamDist], //Возможно имеет смысл прописать сюда все модели
       autoLoadModels: true
     }),

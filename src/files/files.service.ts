@@ -36,44 +36,6 @@ export class FilesService {
             const arhive = path.resolve(filePath, fileName)
             const zip = new AdmZip(arhive)
             await zip.extractAllTo(filePath)
-            const buildfolder = await fs.promises.readdir(path.resolve(filePath, "Build"))
-            const TempDataFolder = await fs.promises.readdir(path.resolve(filePath, "TemplateData"))
-            console.log(buildfolder)
-            for (let fileNameB of buildfolder){
-                const filePathB = path.resolve(filePath, "Build", fileNameB)
-                const backetPath = path.resolve(folderName, "Build", fileNameB)
-                const bfile = fs.createReadStream(filePathB)
-                console.log(filePathB)
-                await this.s3Client.send(
-                    new PutObjectCommand({
-                        Bucket: this.BUCKETNAME,
-                        Key: backetPath,
-                        Body: bfile
-                    })
-                );
-            }
-            for (let fileNameB of TempDataFolder){
-                const filePathB = path.resolve(filePath, "Build", fileNameB)
-                const backetPath = path.resolve(folderName, "Build", fileNameB)
-                const bfile = fs.createReadStream(filePathB)
-                await this.s3Client.send(
-                    new PutObjectCommand({
-                        Bucket: this.BUCKETNAME,
-                        Key: backetPath,
-                        Body: bfile
-                    })
-                );
-            }
-            const html = await fs.createReadStream(path.resolve(filePath, "index.html"))
-            const buckethtml = path.resolve(folderName, "index.html")
-            await this.s3Client.send(
-                new PutObjectCommand({
-                    Bucket: this.BUCKETNAME,
-                    Key: buckethtml,
-                    Body: html
-                })
-            );
-            console.log(TempDataFolder)
             return folderName
         } catch (e) {
             console.log(e)
