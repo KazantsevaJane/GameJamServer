@@ -1,8 +1,9 @@
-import {Body, Controller, Get, Param, Post, Put} from '@nestjs/common';
+import {Body, Controller, Get, Param, Patch, Post, Put} from '@nestjs/common';
 import {TeamDistService} from "./team-dist.service";
 import {DistPostDto} from "./dto/dist-post.dto";
 import {DistAddroleDto} from "./dto/dist-addrole.dto";
 import {GetroleDto} from "./dto/getrole.dto";
+import {AddstudentsDto} from "./dto/addstudents.dto";
 
 @Controller('team-dist')
 export class TeamDistController {
@@ -28,5 +29,10 @@ export class TeamDistController {
     @Get('/getrolebyusersemid')
     getrolebyusersemid(@Body() dto: GetroleDto){
         return this.distService.getRoleByUserSemId(dto.userId, dto.semesterId)
+    }
+
+    @Patch('/addTeamIdForStudents')
+    putTeamIdForStudents(@Body() dto: AddstudentsDto){
+        return this.distService.putTeamIdForStudents(dto)
     }
 }

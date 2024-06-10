@@ -6,6 +6,7 @@ import {Op, where} from "sequelize";
 import {User} from "../users/user.model";
 import * as uuid from 'uuid';
 import {DistAddroleDto} from "./dto/dist-addrole.dto";
+import {AddstudentsDto} from "./dto/addstudents.dto";
 
 
 @Injectable()
@@ -29,5 +30,11 @@ export class TeamDistService {
     }
     async getRoleByUserSemId(userId, semId){
         return await this.teamDistRepository.findAll({where: {[Op.and]: [{userId: userId}, {semesterId: semId}]}})
+    }
+
+    async putTeamIdForStudents(dto: AddstudentsDto){
+        for (let studentId of dto.studentsIds){
+            await this.teamDistRepository.update({teamId: dto.teamId},{where: {[Op.and]: [{userId: studentId}, {semesterId: dto.semesterId}]}}, )
+        }
     }
 }
