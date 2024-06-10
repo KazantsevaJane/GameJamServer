@@ -23,20 +23,7 @@ export class TeamsService {
         return await this.teamRepository.findAll();
     }
 
-    async getStudentsByTeamId(teamId){
-        return await this.teamRepository.findAll({
-            where: {id: teamId},
-            include: [
-                {
-                model: User,
-                through: {
-                    attributes: []
-                },
-                attributes: ['id', 'name', 'surname', 'academicGroup']
-            }],
-            attributes: ['id', 'name']
-        })
-    }
+
 
     async getTeamById(id){
         return await this.teamRepository.findByPk(id)

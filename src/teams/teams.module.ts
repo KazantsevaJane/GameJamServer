@@ -6,12 +6,12 @@ import {User} from "../users/user.model";
 import {Team} from "./teams.model";
 import {UsersModule} from "../users/users.module";
 import {TeamDist} from "../team-dist/team-dist.model";
-import {RoleTeamDist} from "../team-dist/role-team-dist.model";
+
 
 @Module({
   controllers: [TeamsController],
   providers: [TeamsService],
-  imports: [SequelizeModule.forFeature([Team, User, TeamDist, RoleTeamDist]),
+  imports: [SequelizeModule.forFeature([Team, User, TeamDist]),
   UsersModule]
 })
 export class TeamsModule {}

@@ -22,10 +22,10 @@ export class TeamsController {
         return this.teamService.getTeamById(params.id)
     }
 
-    @Get('students/:id')
-    getStudentsByTeamId(@Param() params: any){
-        return this.teamService.getStudentsByTeamId(params.id)
-    }
+    // @Get('students/:id')
+    // getStudentsByTeamId(@Param() params: any){
+    //     return this.teamService.getStudentsByTeamId(params.id)
+    // }
 
     @Put(':id')
     putTeamById(@Param() params:any, @Body() dto:TeamsCreateDto){

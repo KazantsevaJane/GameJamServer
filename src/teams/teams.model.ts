@@ -13,8 +13,4 @@ export class Team extends Model<Team, TeamCreationAttrs>{
     id: string;
     @Column({type: DataType.STRING})
     name: string
-    @BelongsToMany(()=> User, ()=> TeamDist)
-    user: User[]
-    @HasMany(()=> TeamDist)
-    teamDist: TeamDist[]
 }
