@@ -29,8 +29,7 @@ import {TeamRole} from "./team-roles/team-roles.model";
 import { TeamDistModule } from './team-dist/team-dist.module';
 import {TeamDist} from "./team-dist/team-dist.model";
 import {Team} from "./teams/teams.model";
-import {RoleTeamDist} from "./team-dist/role-team-dist.model";
-import * as fs from 'node:fs';
+
 
 @Module({
   controllers: [AppController],
@@ -42,20 +41,13 @@ import * as fs from 'node:fs';
       ServeStaticModule.forRoot({rootPath: path.resolve(__dirname, 'static')}),
     SequelizeModule.forRoot({
       dialect: 'postgres',
-      host: 'rc1a-ib2z08zkxc83lop1.mdb.yandexcloud.net',
-      port: 6432,
-      username: 'user1',
-      password: 'user1user1',
-      database: "db1",
-      models: [Game, CategoryThemes, User, Semester, Status, Category, Theme, CategoryThemes, TeamRole, TeamDist, Team, RoleTeamDist], //Возможно имеет смысл прописать сюда все модели
-      autoLoadModels: true,
-      dialectOptions: {
-        ssl: {
-          ca: fs
-              .readFileSync("/home/user/.postgresql/root.crt")
-              .toString()
-        }
-      },
+      host: 'localhost',
+      port: 5432,
+      username: 'postgres',
+      password: 'root',
+      database: "test",
+      models: [Game, CategoryThemes, User, Semester, Status, Category, Theme, CategoryThemes, TeamRole, TeamDist, Team], //Возможно имеет смысл прописать сюда все модели
+      autoLoadModels: true
     }),
     GamesModule,
     FilesModule,

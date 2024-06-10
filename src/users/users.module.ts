@@ -15,13 +15,13 @@ import {Team} from "../teams/teams.model";
 import {TeamsModule} from "../teams/teams.module";
 import {TeamRole} from "../team-roles/team-roles.model";
 import {TeamDist} from "../team-dist/team-dist.model";
-import {RoleTeamDist} from "../team-dist/role-team-dist.model";
+
 
 @Module({
   providers: [UsersService],
   controllers: [UsersController],
   imports: [
-    SequelizeModule.forFeature([User, Game, Semester, Status, Category, Team, TeamRole, TeamDist, RoleTeamDist]),
+    SequelizeModule.forFeature([User, Game, Semester, Status, Category, Team, TeamRole, TeamDist]),
     FilesModule,
     SemestersModule,
     StatusesModule,
