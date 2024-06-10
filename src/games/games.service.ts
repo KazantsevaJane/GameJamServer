@@ -24,6 +24,10 @@ export class GamesService {
         return await this.gameRepository.findByPk(id)
     }
 
+    async getGameByTeamId(teamid: string){
+        return await this.gameRepository.findAll({where:{teamId: teamid}})
+    }
+
     async putGameById(id, dto:UpdateGameDto){
         return await this.gameRepository.update(dto, {where: {id: id}})
     }

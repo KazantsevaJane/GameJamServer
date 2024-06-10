@@ -22,7 +22,7 @@ export class TeamDistController {
 
     @Get('/getteam/:id')
     getAllStudentInTeamById(@Param() params: any){
-        return this.distService.getStudentsByTeamId(params.id)
+        return this.distService.getAllStudentsByTeamId(params.id)
     }
 
 
@@ -34,5 +34,10 @@ export class TeamDistController {
     @Patch('/addTeamIdForStudents')
     putTeamIdForStudents(@Body() dto: AddstudentsDto){
         return this.distService.putTeamIdForStudents(dto)
+    }
+
+    @Get('/getProjectByUserSemId')
+    getProjectByUserSemId(@Body() dto: GetroleDto){
+        return this.distService.getProjectByUserSemId(dto.userId, dto.semesterId)
     }
 }

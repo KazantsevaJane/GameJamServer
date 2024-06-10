@@ -15,6 +15,7 @@ import {TeamsModule} from "../teams/teams.module";
     providers: [TeamRolesService],
     imports: [SequelizeModule.forFeature([TeamRole, User, TeamDist, Team]),
     UsersModule,
-    TeamsModule]
+    TeamsModule],
+    exports: [TeamRolesService]
 })
 export class TeamRolesModule {}

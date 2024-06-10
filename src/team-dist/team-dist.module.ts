@@ -11,16 +11,19 @@ import {Team} from "../teams/teams.model";
 import {TeamsModule} from "../teams/teams.module";
 import {TeamRole} from "../team-roles/team-roles.model";
 import {TeamRolesModule} from "../team-roles/team-roles.module";
+import {Game} from "../games/game.model";
+import {GamesModule} from "../games/games.module";
 
 
 @Module({
   controllers: [TeamDistController],
   providers: [TeamDistService],
   imports: [
-    SequelizeModule.forFeature([TeamDist, User, Team, TeamRole]),
+    SequelizeModule.forFeature([TeamDist, User, Team, TeamRole, Game]),
     UsersModule,
     TeamsModule,
-    TeamRolesModule
+    TeamRolesModule,
+    GamesModule
   ]
 })
 export class TeamDistModule {}

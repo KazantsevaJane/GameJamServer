@@ -26,6 +26,7 @@ import {ThemesModule} from "../themes/themes.module";
       CategoriesModule,
       UsersModule,
       ThemesModule
-  ]
+  ],
+    exports: [GamesService]
 })
 export class GamesModule {}
