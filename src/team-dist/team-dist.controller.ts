@@ -1,4 +1,4 @@
-import {Body, Controller, Get, Param, Patch, Post, Put} from '@nestjs/common';
+import {Body, Controller, Get, Param, Patch, Post, Put, Query} from '@nestjs/common';
 import {TeamDistService} from "./team-dist.service";
 import {DistPostDto} from "./dto/dist-post.dto";
 import {DistAddroleDto} from "./dto/dist-addrole.dto";
@@ -25,10 +25,12 @@ export class TeamDistController {
         return this.distService.getAllStudentsByTeamId(params.id)
     }
 
-
     @Get('/getrolebyusersemid')
-    getrolebyusersemid(@Body() dto: GetroleDto){
-        return this.distService.getRoleByUserSemId(dto.userId, dto.semesterId)
+    getrolebyusersemid(
+        @Query('userId') userId: string,
+        @Query('semesterId') semesterId: string
+    ){
+        return this.distService.getRoleByUserSemId(userId, semesterId)
     }
 
     @Patch('/addTeamIdForStudents')
@@ -37,7 +39,10 @@ export class TeamDistController {
     }
 
     @Get('/getProjectByUserSemId')
-    getProjectByUserSemId(@Body() dto: GetroleDto){
-        return this.distService.getProjectByUserSemId(dto.userId, dto.semesterId)
+    getProjectByUserSemId(
+        @Query('userId') userId: string,
+        @Query('semesterId') semesterId: string
+    ){
+        return this.distService.getProjectByUserSemId(userId, semesterId)
     }
 }
